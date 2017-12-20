@@ -14,10 +14,10 @@ config = {
         'server.socket_host': '0.0.0.0',
         'server.socket_port': int(os.environ.get('PORT', 5000)),
     },
-    '/static': {
+    '/assets': {
         'tools.staticdir.root': os.path.dirname(os.path.abspath(__file__)),
         'tools.staticdir.on': True,
-        'tools.staticdir.dir': 'static',
+        'tools.staticdir.dir': 'assets',
     }
 }
 
