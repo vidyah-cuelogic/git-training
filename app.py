@@ -1,5 +1,6 @@
 import cherrypy
 import os
+import env_file
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('templates'))
 
@@ -7,8 +8,9 @@ env = Environment(loader=FileSystemLoader('templates'))
 class HelloWorld(object):
     @cherrypy.expose
     def index(self):
+        Environment_variable = env_file.Environment
         tmpl = env.get_template('index.html')
-        return tmpl.render()
+        return tmpl.render(Environment_variable=Environment_variable)
 
 config = {
     'global': {
